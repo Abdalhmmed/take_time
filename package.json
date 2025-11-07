@@ -19,5 +19,18 @@
     "@vitejs/plugin-vue": "^6.0.1",
     "vite": "^7.1.11",
     "vite-plugin-vue-devtools": "^8.0.3"
-  }
+  },
+  "description": "non",
+  "main": "vite.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Abdalhmmed/take_time.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Abdalhmmed/take_time/issues"
+  },
+  "homepage": "https://github.com/Abdalhmmed/take_time#readme"
 }
