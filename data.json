@@ -21,24 +21,45 @@
             "user_id": 1,
             "titel": "task 1",
             "description": "description...",
-            "confirm": false,
-            "date": "2/2/2004"
+            "confirm": true,
+            "type": "day",
+            "date": "2025-11-10"
         },
-         {
+        {
             "id": 2,
             "user_id": 1,
             "titel": "task 2",
             "description": "description...",
-            "confirm": false,
-            "date": "2/2/2004"
+            "confirm": true,
+            "type": "day",
+            "date": "2025-11-10"
         },
-         {
+        {
             "id": 3,
             "user_id": 1,
             "titel": "task 3",
             "description": "description...",
             "confirm": false,
-            "date": "3/2/2004"
+            "type": "month",
+            "date": "2025-11-10"
+        },
+        {
+            "id": 4,
+            "user_id": 1,
+            "titel": "task 4",
+            "description": "description...",
+            "confirm": true,
+            "type": "month",
+            "date": "2025-11-10"
+        },
+        {
+            "id": 5,
+            "user_id": 1,
+            "titel": "task 5",
+            "description": "description...",
+            "confirm": false,
+            "type": "year",
+            "date": "2025-11-10"
         }
     ]
 }

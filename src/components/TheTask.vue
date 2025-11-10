@@ -1,8 +1,24 @@
 <script setup>
-import { ref } from 'vue';
+import { onMounted, ref } from 'vue';
+
 
 const TaskAction = ref(false)
-const Taskbut = ref(false)
+const Taskbut = ref('')
+
+const props = defineProps({
+  task: {
+    type: Object,
+    default: () => ({
+      id: 0,
+      user_id: 0,
+      titel: "error",
+      description: "error...",
+      confirm: null,
+      type: "error",
+      date: "0000-00-00"
+    })
+  }
+});
 
 function Task(){
     if (!TaskAction.value){
@@ -13,13 +29,19 @@ function Task(){
         Taskbut.value.style.background = "linear-gradient(90deg, #09080c, #171617)";
     }
 }
+
+onMounted(() => { 
+
+  TaskAction.value = !props.task.confirm
+  Task()
+})
 </script>
 
 <template>
     <div class="task-item">
         <div class="task-meta">
-            <div class="title">عنوان المهمة</div>
-            <div class="sub">تفاصيل قصيرة عن المهمة</div>
+            <div class="title"> {{ props.task.titel }} </div>
+            <div class="sub"> {{ props.task.description }} </div>
         </div>
         <button @click="Task()" class="task-action" ref="Taskbut" title="تأكيد تنفيذ المهمة" aria-label="تأكيد تنفيذ المهمة" aria-pressed="false">
             <i v-if="TaskAction" class="bi bi-check-lg"></i>
