@@ -1,19 +1,59 @@
+<script setup>
+import { onMounted, ref } from 'vue';
+
+
+const user = ref({});
+
+function loginuser(){
+  if (localStorage.getItem("userID")){
+    user.value = {
+      id: localStorage.getItem("userID") || null,
+      name: localStorage.getItem("userName") || null, 
+      email: localStorage.getItem("userEmail") || null
+    }
+  }
+}
+
+function logout(){
+  localStorage.clear();
+  location.reload();
+}
+
+onMounted(() => {
+    loginuser()
+  }
+)
+
+</script>
+
+
 <template>
   <nav class="navbar">
     <div class="container d-flex align-items-center justify-content-between">
-      <div class="nav-left">
+      <div v-if="!user.id" class="nav-left">
         <a class="btn btn-outline-interact btn-sm" href="#about">من نحن</a>
         <a class="btn btn-outline-interact btn-sm" href="#achievements">إنجازاتنا</a>
         <a class="btn btn-outline-interact btn-sm" href="#contact">تواصل معنا</a>
+      </div>
+
+      <div v-else-if="user.id" class="nav-left">
+        <router-link :to="{ name: 'HomePage' }" class="btn btn-outline-interact btn-sm" href="#about"> صفحة المهام</router-link>
+        <router-link :to="{ name: 'MainPage' }" class="btn btn-outline-interact btn-sm" href="#achievements">الصفحة الرائيسية</router-link>
+        <router-link :to="{ name: 'HomePage' }" class="btn btn-outline-interact btn-sm" href="#contact"> الاعدادات</router-link>
       </div>
 
       <div class="nav-center">
         <a class="navbar-brand brand-decor" href="#">Take Time</a>
       </div>
 
-      <div class="nav-right">
-        <button class="btn btn-outline-interact btn-sm me-2">تسجيل دخول</button>
-        <button class="btn btn-sign">إنشاء حساب</button>
+      <div v-if="!user.id" class="nav-right">
+        <router-link :to="{ name: 'Loging' }" class="btn btn-outline-interact btn-sm me-2">تسجيل دخول</router-link>
+        <router-link :to="{ name: 'Loging' }" class="btn btn-sign">إنشاء حساب</router-link>
+      </div>
+
+      <div v-if="user.id" class="nav-right">
+        <button  @click="logout()" class="btn btn-outline-interact btn-sm me-2" > تسجيل الخروج  </button>
+        <router-link :to="{ name: 'HomePage' }" class="btn btn-sign"> {{ user.name }} </router-link>
       </div>
     </div>
   </nav>
@@ -87,7 +127,6 @@
   box-shadow: 0 12px 30px rgba(123,60,240,0.18);
 }
 
-/* Responsive */
 @media (max-width: 767px) {
   .nav-center {
     position: static;
