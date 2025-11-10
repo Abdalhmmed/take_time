@@ -1,4 +1,5 @@
 <script setup>
+import TheTask from './TheTask.vue';
 
 </script>
 
@@ -45,6 +46,7 @@
 
         <div class="col-lg-8">
           <div class="row g-3 h-100">
+            
             <div class="col-md-6">
               <div class="tasks-card">
                 <div class="tasks-header">
@@ -53,35 +55,7 @@
                 </div>
 
                 <div class="task-list mt-sm">
-                  <div class="task-item">
-                    <div class="task-meta">
-                      <div class="title">عنوان المهمة</div>
-                      <div class="sub">تفاصيل قصيرة عن المهمة</div>
-                    </div>
-                    <button class="task-action" title="الحالة">
-                      <i class="bi bi-check-lg"></i>
-                    </button>
-                  </div>
-
-                  <div class="task-item">
-                    <div class="task-meta">
-                      <div class="title">مراجعة المحاضرات</div>
-                      <div class="sub">مراجعة فصل الخوارزميات — 1 ساعة</div>
-                    </div>
-                    <button class="task-action" title="الحالة">
-                      <i class="bi bi-clock"></i>
-                    </button>
-                  </div>
-
-                  <div class="task-item">
-                    <div class="task-meta">
-                      <div class="title">حل واجب البرمجة</div>
-                      <div class="sub">استخدام Vue و Pinia</div>
-                    </div>
-                    <button class="task-action" title="الحالة">
-                      <i class="bi bi-play-fill"></i>
-                    </button>
-                  </div>
+                  <TheTask v-for="n in 3" :key="n"/>
                 </div>
 
                 <div class="d-flex justify-content-end mt-2">
@@ -98,35 +72,7 @@
                 </div>
 
                 <div class="task-list mt-sm">
-                  <div class="task-item">
-                    <div class="task-meta">
-                      <div class="title">تخطيط المشروع</div>
-                      <div class="sub">تفصيل خطوات المشروع النهائي</div>
-                    </div>
-                    <button class="task-action" title="الحالة">
-                      <i class="bi bi-pencil"></i>
-                    </button>
-                  </div>
-
-                  <div class="task-item">
-                    <div class="task-meta">
-                      <div class="title">تحديث السيرة الذاتية</div>
-                      <div class="sub">إضافة خبرات التدريب الصيفي</div>
-                    </div>
-                    <button class="task-action" title="الحالة">
-                      <i class="bi bi-person-check"></i>
-                    </button>
-                  </div>
-
-                  <div class="task-item">
-                    <div class="task-meta">
-                      <div class="title">قائمة امتحانات</div>
-                      <div class="sub">تجهيز جدول مراجعة قبل الامتحانات</div>
-                    </div>
-                    <button class="task-action" title="الحالة">
-                      <i class="bi bi-calendar-event"></i>
-                    </button>
-                  </div>
+                  <TheTask v-for="n in 3" :key="n"/>
                 </div>
 
                 <div class="d-flex justify-content-end mt-2">
@@ -138,11 +84,14 @@
             <div class="col-12">
               <div class="tasks-card d-flex align-items-center justify-content-between">
                 <div>
-                  <div class="fw-bold">موجز إنجازاتك</div>
+                  <div class="fw-bold" style="color: #ffffff;">موجز إنجازاتك</div>
                   <div style="color: #865cc4;">مهام مكتملة: <strong>12</strong> — معدل الالتزام: <strong>78%</strong></div>
                 </div>
                 <div class="text-end">
-                  <button class="btn btn-sm fs-5" style="background:linear-gradient(90deg,var(--accent-1),var(--accent-2)); color:#fff;">تقرير الشهر</button>
+                  <button type="button" class="btn btn-sm fs-5"
+                    style="background: linear-gradient(90deg, #9b6cff, #7b3cf0); color: #fff;">
+                    تقرير الشهر
+                  </button>
                 </div>
               </div>
             </div>
@@ -153,28 +102,6 @@
 </template>
 
 <style scoped>
-        :root {
-  --purple-dark: #4a138f;
-  --purple-mid:  #5b21b6;
-  --purple-light:#c7a3ff;
-  --card-strong: #141017;
-  --card-strong-2:#2a1636;
-  --accent-1: #7c2bd9;
-  --accent-2: #5b21b6;
-  --muted: rgba(255,255,255,0.75);
-}
-
-* {
-  box-sizing: border-box;
-}
-
-body {
-  margin:0;
-  font-family: 'Cairo', sans-serif;
-  background: linear-gradient(180deg,#07060a 0%, #0f0d15 100%);
-  color: #e8e6ee;
-  min-height:100vh;
-}
 
 .app-wrap { padding: 2rem; }
 
@@ -232,7 +159,6 @@ body {
   gap: .9rem;
 }
 
-/* ------------------ QUICK ITEM ------------------ */
 .quick-item {
   position: relative;
   background: linear-gradient(180deg, #241231, #391a48);
@@ -299,7 +225,6 @@ body {
   z-index: 1;
 }
 
-/* ------------------ TASKS ------------------ */
 .tasks-card {
   background: linear-gradient(180deg, var(--card-strong), var(--card-strong-2));
   border-radius: 1rem;
@@ -333,39 +258,9 @@ body {
   padding-right:.2rem;
 }
 
-.task-item {
-  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-  border-radius:.7rem;
-  padding:.6rem .9rem;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:.8rem;
-  border: 1px solid rgba(255,255,255,0.02);
-}
 
-.task-meta { text-align:right; }
 
-.task-meta .title {
-  font-weight:800;
-  color:#fff;
-}
 
-.task-meta .sub {
-  color: rgba(255,255,255,0.78);
-  font-size:.92rem;
-}
-
-.task-action {
-  width:42px;
-  height:42px;
-  border-radius:50%;
-  display:grid;
-  place-items:center;
-  background: linear-gradient(180deg,#ffd6e8, #ff9acb);
-  color: #2b0630;
-  border: none;
-}
 
 .section-title {
   font-weight:900;

@@ -14,5 +14,31 @@
             "email": "example2.example@example.com",
             "password": "123"
         }
+    ],
+    "tasks": [
+        {
+            "id": 1,
+            "user_id": 1,
+            "titel": "task 1",
+            "description": "description...",
+            "confirm": false,
+            "date": "2/2/2004"
+        },
+         {
+            "id": 2,
+            "user_id": 1,
+            "titel": "task 2",
+            "description": "description...",
+            "confirm": false,
+            "date": "2/2/2004"
+        },
+         {
+            "id": 3,
+            "user_id": 1,
+            "titel": "task 3",
+            "description": "description...",
+            "confirm": false,
+            "date": "3/2/2004"
+        }
     ]
 }
