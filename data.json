@@ -1,0 +1,65 @@
+{
+    "users": [
+        {
+            "id": 1,
+            "name": "abude1",
+            "phone": "500500500",
+            "email": "example1.example@example.com",
+            "password": "123"
+        },
+        {
+            "id": 2,
+            "name": "abude2",
+            "phone": "500500500",
+            "email": "example2.example@example.com",
+            "password": "123"
+        }
+    ],
+    "tasks": [
+        {
+            "id": 1,
+            "user_id": 2,
+            "titel": "task 1",
+            "description": "description...",
+            "confirm": true,
+            "type": "day",
+            "date": "2025-11-11"
+        },
+        {
+            "id": 2,
+            "user_id": 2,
+            "titel": "task 2",
+            "description": "description...",
+            "confirm": true,
+            "type": "day",
+            "date": "2025-11-11"
+        },
+        {
+            "id": 3,
+            "user_id": 1,
+            "titel": "task 3",
+            "description": "description...",
+            "confirm": false,
+            "type": "month",
+            "date": "2025-11-11"
+        },
+        {
+            "id": 4,
+            "user_id": 1,
+            "titel": "task 4",
+            "description": "description...",
+            "confirm": true,
+            "type": "month",
+            "date": "2025-11-11"
+        },
+        {
+            "id": 5,
+            "user_id": 1,
+            "titel": "task 5",
+            "description": "description...",
+            "confirm": false,
+            "type": "year",
+            "date": "2025-11-10"
+        }
+    ]
+}

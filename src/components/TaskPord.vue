@@ -19,6 +19,7 @@ const SideText = ref('')
 onMounted( async () =>{
 
   const id = localStorage.getItem("userID")
+  console.log("id: ", id)
   const date = new Date()
 
   dayTask.value = await TaskStore.fetchTaskDayByUserId(id,date)
@@ -98,10 +99,6 @@ onMounted( async () =>{
               <div class="task-list mt-sm">
                 <div v-if="TaskStore.loading"></div>
 
-                <div v-else-if="!TaskStore.loading && (!dayTask || dayTask.length === 0)">
-                  <span> لاتوجد مهام لهذا اليوم </span>
-                </div>
-
                 <TheTask v-else v-for="task in dayTask" :key="task.id" :task="task" />
               </div>
 
@@ -120,10 +117,6 @@ onMounted( async () =>{
 
               <div class="task-list mt-sm">
                 <div v-if="TaskStore.loading"></div>
-
-                <div v-else-if="!TaskStore.loading && (!monthTask || monthTask.length === 0)">
-                  <span> لاتوجد مهام لهذا الشهر </span>
-                </div>
 
                 <TheTask v-else v-for="task in monthTask" :key="task.id" :task="task" />
               </div>
@@ -174,6 +167,7 @@ onMounted( async () =>{
     </div> 
   </div>
 </template>
+
 <style scoped>
 
 .app-wrap { padding: 2rem; }
@@ -234,7 +228,7 @@ onMounted( async () =>{
 
 .quick-item {
   position: relative;
-  background: linear-gradient(180deg, #241231, #391a48);
+  background: linear-gradient(180deg, #2412316e, #391a487a);
   border-radius: .9rem;
   padding: 1rem;
   height: 9.5rem;
@@ -299,7 +293,7 @@ onMounted( async () =>{
 }
 
 .tasks-card {
-  background: linear-gradient(180deg, var(--card-strong), var(--card-strong-2));
+  background: linear-gradient(180deg, #2412316e, #391a487a);
   border-radius: 1rem;
   padding: .8rem;
   height:100%;
@@ -383,7 +377,7 @@ onMounted( async () =>{
 }
 
 .progress-bar {
-  background: linear-gradient(90deg, #9b6cff, #7b3cf0);
+  background: linear-gradient(90deg, #9b6cff5f, #7b3cf0);
   height: 100%;
   transition: width 0.3s ease-in-out;
   border-radius: 1rem 0 0 1rem;
