@@ -46,6 +46,9 @@ onMounted( async () =>{
 </script>
 
 <template>
+  
+  <div class="title">جدول المهام اليومية</div>
+
   <div class="container-fluid app-wrap">
     <div class="row gx-4" style="min-height:70vh;">
       <div class="col-lg-4 mb-3">
@@ -171,6 +174,15 @@ onMounted( async () =>{
 <style scoped>
 
 .app-wrap { padding: 2rem; }
+
+.title{
+  color: #9b6cff;
+  font-size: 3rem;
+  text-align: center;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  font-weight: 800;
+}
 
 .summary-card {
   background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));

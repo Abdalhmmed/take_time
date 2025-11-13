@@ -10,7 +10,6 @@ export const useTaskStore = defineStore("TaskStore", () => {
     const apiURL = "http://localhost:5000/tasks";
 
     const getTasks = async (params = {}) => {
-        // منع الجلب إذا لم يحدد user_id
         if (!params.user_id) {
             console.warn("❌ لا يمكن جلب المهام بدون معرف المستخدم (user_id).");
             return [];
@@ -32,9 +31,9 @@ export const useTaskStore = defineStore("TaskStore", () => {
         }
     };
 
-    const fetchTasks = (userId) => {
-        if (!userId) return [];
-        return getTasks({ user_id: userId });
+    const fetchTasks = (task) => {
+        if (!task) return [];
+        return getTasks({ id: task });
     };
 
     const fetchTaskById = async (taskId, userId) => {

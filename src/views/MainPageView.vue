@@ -1,4 +1,5 @@
 <script setup>
+import Calendar from '@/components/Calendar.vue';
 import TaskPord from '@/components/TaskPord.vue';
 import { onMounted } from 'vue';
 import { useRouter } from 'vue-router';
@@ -15,6 +16,7 @@ onMounted( () => {
 
 <template>
     <TaskPord />
+    <Calendar />
 </template>
 
 <style scoped>
